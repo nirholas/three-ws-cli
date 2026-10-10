@@ -1,0 +1,19 @@
+# @three-ws/cli
+
+> One command to connect any MCP client to three.ws: sign in with OAuth or an API key, write the three.ws MCP servers into Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, IBM Bob, Codex, Gemini CLI or Hermes, print the connector fields for Grok Bot, and verify each with a live tools/list.
+
+@three-ws/cli is a JavaScript library from three.ws. Install: `npx -y @three-ws/cli`.
+
+## Docs
+
+- [README](https://github.com/nirholas/three-ws-cli/blob/main/README.md): install, configuration, full reference
+- [Documentation site](https://nirholas.github.io/three-ws-cli/): the README as a web page
+- [Full text for LLMs](https://nirholas.github.io/three-ws-cli/llms-full.txt): README inlined
+- [AGENTS.md](https://github.com/nirholas/three-ws-cli/blob/main/AGENTS.md): guidance for coding agents
+
+## Project
+
+- [Source](https://github.com/nirholas/three-ws-cli)
+- [npm](https://www.npmjs.com/package/@three-ws/cli)
+- [three.ws](https://three.ws): the platform this is part of
+- [Issues](https://github.com/nirholas/three-ws-cli/issues)

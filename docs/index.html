@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>@three-ws/cli: One command to connect any MCP client to three.ws</title>
+<meta name="description" content="One command to connect any MCP client to three.ws: sign in with OAuth or an API key, write the three.ws MCP servers into Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, IBM Bob, Codex, Gemini CLI or Hermes, print the connector fields for Grok Bot, and verify each with a live tools/list.">
+<link rel="canonical" href="https://nirholas.github.io/three-ws-cli/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="three.ws">
+<meta property="og:title" content="@three-ws/cli">
+<meta property="og:description" content="One command to connect any MCP client to three.ws: sign in with OAuth or an API key, write the three.ws MCP servers into Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, IBM Bob, Codex, Gemini CLI or Hermes, print the connector fields for Grok Bot, and verify each with a live tools/list.">
+<meta property="og:url" content="https://nirholas.github.io/three-ws-cli/">
+<meta property="og:image" content="https://nirholas.github.io/three-ws-cli/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="@three-ws/cli">
+<meta name="twitter:description" content="One command to connect any MCP client to three.ws: sign in with OAuth or an API key, write the three.ws MCP servers into Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, IBM Bob, Codex, Gemini CLI or Hermes, print the connector fields for Grok Bot, and verify each with a live tools/list.">
+<meta name="twitter:image" content="https://nirholas.github.io/three-ws-cli/og.png">
+<meta name="keywords" content="three.ws, mcp, model-context-protocol, cli, oauth, claude, cursor, vscode, codex, gemini, solana, agents, grok-bot, ai-agents">
+<link rel="alternate" type="text/plain" href="llms.txt" title="llms.txt">
+<link rel="icon" href="https://three.ws/three-ws-mcp-icon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"@three-ws/cli","description":"One command to connect any MCP client to three.ws: sign in with OAuth or an API key, write the three.ws MCP servers into Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, IBM Bob, Codex, Gemini CLI or Hermes, print the connector fields for Grok Bot, and verify each with a live tools/list.","codeRepository":"https://github.com/nirholas/three-ws-cli","programmingLanguage":"JavaScript","license":"https://spdx.org/licenses/Apache-2.0.html","version":"0.1.1","url":"https://nirholas.github.io/three-ws-cli/","author":{"@type":"Organization","name":"three.ws","url":"https://three.ws"},"keywords":"three.ws, mcp, model-context-protocol, cli, oauth, claude, cursor, vscode, codex, gemini, solana, agents, grok-bot, ai-agents"}</script>
+<style>:root{--bg:#fff;--fg:#111418;--mut:#586069;--line:#e3e6ea;--acc:#2563eb;--code:#f4f6f8;--card:#fafbfc}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0d10;--fg:#e8eaed;--mut:#9aa3ad;--line:#232830;--acc:#6ea0ff;--code:#14181d;--card:#10141a}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+header.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-weight:700;text-decoration:none;color:var(--fg)}
+.bar nav{margin-left:auto;display:flex;gap:16px;font-size:14px}
+.bar nav a{color:var(--mut);text-decoration:none;transition:color .15s}.bar nav a:hover{color:var(--fg)}
+.hero{max-width:1100px;margin:0 auto;padding:48px 16px 24px}
+.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+.hero p{color:var(--mut);max-width:70ch;font-size:18px;margin:0 0 24px}
+.install{display:flex;align-items:center;gap:8px;max-width:620px;background:var(--code);border:1px solid var(--line);border-radius:10px;padding:6px 6px 6px 14px}
+.install code{flex:1;overflow-x:auto;white-space:nowrap;font:14px ui-monospace,SFMono-Regular,Menlo,monospace}
+.install button{border:0;background:var(--acc);color:#fff;border-radius:7px;padding:8px 14px;font:600 13px system-ui;cursor:pointer;transition:transform .12s,opacity .12s}
+.install button:hover{opacity:.9}.install button:active{transform:scale(.96)}
+.cta{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.cta a{padding:9px 16px;border:1px solid var(--line);border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;color:var(--fg);transition:border-color .15s,transform .15s}
+.cta a:hover{border-color:var(--acc);transform:translateY(-1px)}.cta a.pri{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.layout{max-width:1100px;margin:0 auto;padding:8px 16px 64px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px}
+@media(max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}.toc{display:none}}
+.toc{position:sticky;top:76px;align-self:start;font-size:14px;border-left:1px solid var(--line);padding-left:16px}
+.toc p{margin:0 0 8px;font-weight:700;color:var(--mut);text-transform:uppercase;font-size:12px;letter-spacing:.06em}
+.toc ul{list-style:none;margin:0;padding:0}.toc li{margin:6px 0}.toc a{color:var(--mut);text-decoration:none}.toc a:hover{color:var(--fg)}
+main{min-width:0;overflow-wrap:anywhere}main pre code{overflow-wrap:normal}main img{max-width:100%;height:auto}
+main h2{margin-top:2.2em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+.anchor{margin-left:-1.1em;padding-right:.4em;text-decoration:none;opacity:0;color:var(--mut)}h2:hover .anchor,h3:hover .anchor,h4:hover .anchor{opacity:1}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font-size:14px;line-height:1.5}
+code{font:0.9em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--code);padding:.15em .35em;border-radius:5px}pre code{background:none;padding:0}
+table{border-collapse:collapse;display:block;overflow-x:auto;max-width:100%}th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}th{background:var(--card)}
+blockquote{margin:1em 0;padding:.2em 1em;border-left:4px solid var(--line);color:var(--mut)}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+.foot-in{max-width:1100px;margin:0 auto;padding:24px 16px;display:flex;gap:16px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+<a class="brand" href="https://nirholas.github.io/three-ws-cli/">@three-ws/cli</a>
+<nav aria-label="Project links"><a href="https://github.com/nirholas/three-ws-cli">GitHub</a><a href="https://www.npmjs.com/package/@three-ws/cli">npm</a><a href="llms.txt">llms.txt</a><a href="https://three.ws">three.ws</a></nav>
+</div></header>
+<section class="hero">
+<h1>@three-ws/cli</h1>
+<p>One command to connect any MCP client to three.ws: sign in with OAuth or an API key, write the three.ws MCP servers into Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, IBM Bob, Codex, Gemini CLI or Hermes, print the connector fields for Grok Bot, and verify each with a live tools/list.</p>
+<div class="install" role="group" aria-label="Install command"><code>npx -y @three-ws/cli</code><button type="button" data-copy="npx -y @three-ws/cli">Copy</button></div>
+<div class="cta"><a class="pri" href="https://github.com/nirholas/three-ws-cli">View on GitHub</a><a href="https://github.com/nirholas/three-ws-cli/stargazers">Star the repo</a></div>
+</section>
+<div class="layout">
+<main id="content"><h1>three-ws</h1>
+<p>Connect any MCP client to <a href="https://three.ws">three.ws</a> in one command. <code>three-ws</code> signs you in, writes the hosted three.ws MCP servers into every client it finds (Claude Code, Claude Desktop, Cursor, Windsurf, VS Code, IBM Bob, Codex, Gemini CLI, Hermes), prints the connector fields for Grok Bot, and verifies each one with a live <code>tools/list</code>.</p>
+<pre><code class="language-bash">npx @three-ws/cli setup
+</code></pre>
+<p>Requires Node.js 20.12 or newer.</p>
+<h2 id="what-you-get"><a class="anchor" href="#what-you-get" aria-label="Link to this section">#</a>What you get</h2>
+<p>The three.ws MCP servers give your assistant 3D generation (text to 3D, image to 3D, rigged avatars), your agents and their wallets, x402 paid services, and Solana token data. The live list is at <a href="https://three.ws/.well-known/mcp.json">three.ws/.well-known/mcp.json</a> and every tool is in the <a href="https://three.ws/mcp-tools">catalog</a>.</p>
+<p>Using one client that supports remote connectors? <a href="https://three.ws/connect">three.ws/connect</a> adds three.ws to Claude, Cursor or VS Code in one click, with no terminal.</p>
+<h2 id="one-command-per-client"><a class="anchor" href="#one-command-per-client" aria-label="Link to this section">#</a>One command per client</h2>
+<pre><code class="language-bash">npx @three-ws/cli --claude     # also --cursor --codex --vscode --windsurf --gemini --bob --hermes
+</code></pre>
+<p>Signs in, writes the servers, verifies them, and installs the three.ws skill for Claude Code, with no prompts. The config gets a <code>three-ws proxy</code> launcher, never a token: credentials stay in <code>~/.config/three-ws/credentials.json</code> (mode 600). Running it again changes nothing. Then: <code>claude &quot;launch my agent&quot;</code>.</p>
+<p>Hosted installers: <code>curl -fsSL https://three.ws/cli/install | sh</code> and <code>curl -fsSL https://three.ws/cli/claude | sh</code>. Every script ships with a <code>.sha256</code> checksum and an ed25519 <code>.sig</code>; download, read and verify before running: <a href="https://three.ws/docs/cli#verify-before-you-run">three.ws/docs/cli#verify-before-you-run</a>.</p>
+<pre><code class="language-bash">npx @three-ws/cli doctor              # bad config, expired sign-in, unreachable server, with the fix for each
+npx @three-ws/cli agent status        # agents, wallets and balances
+npx @three-ws/cli team                # your teams; `team status &lt;id&gt;` for one
+</code></pre>
+<h3 id="clean-container-check"><a class="anchor" href="#clean-container-check" aria-label="Link to this section">#</a>Clean-container check</h3>
+<p><code>tests/container/run.sh</code> packs this package and, for each client, starts a fresh <code>node:22</code> container, runs the hosted installer against a local stand-in platform, and asserts the config is written without a key, a second run changes nothing, <code>doctor</code> passes and the credential file is mode 600. Needs Docker.</p>
+<pre><code class="language-bash">bash packages/three-ws-cli/tests/container/run.sh
+</code></pre>
+<h2 id="common-commands"><a class="anchor" href="#common-commands" aria-label="Link to this section">#</a>Common commands</h2>
+<pre><code class="language-bash">npx @three-ws/cli setup --clients cursor,vscode --yes   # specific clients, no prompts
+npx @three-ws/cli setup --project                       # project-scoped config in this directory
+npx @three-ws/cli login --device                        # sign in over SSH
+npx @three-ws/cli link BCDF-GHJK                        # link this terminal with a code from /dashboard/account
+npx @three-ws/cli mcp list --available                  # every server and its name
+npx @three-ws/cli tools --server three-ws-main --enable financial
+npx @three-ws/cli status
+npx @three-ws/cli create &quot;Nova&quot; --description &quot;A deep-space guide.&quot;   # an agent with its own Solana wallet
+npx @three-ws/cli launch --agent &lt;id&gt; --name Nova --symbol NOVA      # prefilled, you sign on three.ws/launch
+</code></pre>
+<h2 id="grok-bot"><a class="anchor" href="#grok-bot" aria-label="Link to this section">#</a>Grok Bot</h2>
+<p>Grok Bot&#39;s MCP configuration lives in xAI&#39;s cloud, so there is no file to write. <code>setup</code> handles the rest: it picks the Grok connector (<code>https://three.ws/api/mcp-grok</code>), copies the URL to your clipboard when a clipboard tool exists, prints the exact fields for Grok Bot&#39;s custom MCP connector, and runs a real <code>tools/list</code> against the public URL to prove it answers from outside.</p>
+<pre><code class="language-bash">npx @three-ws/cli setup --client grok-bot                    # free 3D studio, no account, no key
+npx @three-ws/cli setup --client grok-bot --connector-key    # also mint a key so Grok Bot can use your agents
+npx @three-ws/cli setup --clients cursor,grok-bot --yes      # local clients and Grok Bot in one run
+</code></pre>
+<pre><code>Grok Bot (cloud connector, nothing to write locally)
+  Name            three-ws
+  Transport       Streamable HTTP
+  Server URL      https://three.ws/api/mcp-grok
+  Authentication  None
+</code></pre>
+<p><code>--connector-key</code> signs you in, mints one key with the <code>connector</code> preset (read, generate and edit agents, never spend), stores it in the credential file, and reuses it on later runs. Paste it as a Bot secret. <code>--no-copy</code> skips the clipboard. A <code>localhost</code> origin is flagged, because Grok Bot connects from xAI&#39;s cloud. Full walkthrough: <a href="https://three.ws/docs/grok">three.ws/docs/grok</a>.</p>
+<p>Sign-in is a browser OAuth flow by default. <code>--device</code> approves a code from any browser, and <code>--key sk_live_...</code> (or <code>THREE_WS_API_KEY</code>) uses an API key from <a href="https://three.ws/dashboard/api">Dashboard → API</a>. Tools that move funds are off unless you sign in with <code>--financial</code> and enable them.</p>
+<h2 id="programmatic-use"><a class="anchor" href="#programmatic-use" aria-label="Link to this section">#</a>Programmatic use</h2>
+<p>The package exports its building blocks (server directory, client detection, config writers, OAuth helpers) for tools that want to reuse them. List every hosted server and the name clients store it under:</p>
+<pre><code class="language-js">import { loadDirectory, hostedServers } from &#39;three-ws&#39;;
+
+const origin = &#39;https://three.ws&#39;;
+const directory = await loadDirectory(origin);
+for (const server of hostedServers(directory, origin)) console.log(server.slug, server.url);
+// three-ws-main https://three.ws/api/mcp
+// three-ws-studio https://three.ws/api/mcp-studio
+// ...
+</code></pre>
+<h2 id="docs"><a class="anchor" href="#docs" aria-label="Link to this section">#</a>Docs</h2>
+<p>Full reference, client config paths and troubleshooting: <a href="https://three.ws/docs/cli">three.ws/docs/cli</a>.</p>
+<h2 id="license"><a class="anchor" href="#license" aria-label="Link to this section">#</a>License</h2>
+<p>Apache-2.0</p>
+</main>
+<nav class="toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#what-you-get">What you get</a></li><li><a href="#one-command-per-client">One command per client</a></li><li><a href="#common-commands">Common commands</a></li><li><a href="#grok-bot">Grok Bot</a></li><li><a href="#programmatic-use">Programmatic use</a></li><li><a href="#docs">Docs</a></li><li><a href="#license">License</a></li></ul></nav>
+</div>
+<footer><div class="foot-in"><span>Apache-2.0 licensed</span><a href="https://github.com/nirholas/three-ws-cli/issues">Issues</a><a href="https://github.com/nirholas/three-ws-cli/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/nirholas/three-ws-cli/security/policy">Security</a><a href="https://three.ws">Part of three.ws</a></div></footer>
+<script>document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+var t=b.getAttribute('data-copy');var done=function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)};
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){})}
+else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}a.remove()}})});</script>
+</body>
+</html>
