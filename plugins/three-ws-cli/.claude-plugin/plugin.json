@@ -6,6 +6,7 @@
     "name": "nirholas"
   },
   "repository": "https://github.com/nirholas/three-ws-cli",
+  "homepage": "https://nirholas.github.io/three-ws-cli/",
   "license": "Apache-2.0",
   "keywords": [
     "mcp",
@@ -14,6 +15,5 @@
     "oauth",
     "claude-code",
     "setup"
-  ],
-  "homepage": "https://nirholas.github.io/three-ws-cli/"
+  ]
 }

@@ -7,8 +7,9 @@
   "plugins": [
     {
       "name": "three-ws-cli",
-      "source": "./",
+      "source": "./plugins/three-ws-cli",
       "description": "Connect any MCP client to the hosted three.ws MCP servers with @three-ws/cli: sign in, write configs, verify, diagnose.",
+      "category": "development",
       "tags": [
         "mcp",
         "three-ws",
