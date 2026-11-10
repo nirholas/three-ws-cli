@@ -1,0 +1,19 @@
+{
+  "name": "three-ws-cli",
+  "version": "0.1.1",
+  "description": "Connect any MCP client to the hosted three.ws MCP servers with @three-ws/cli: sign in, write configs, verify, diagnose.",
+  "author": {
+    "name": "nirholas"
+  },
+  "repository": "https://github.com/nirholas/three-ws-cli",
+  "license": "Apache-2.0",
+  "keywords": [
+    "mcp",
+    "three-ws",
+    "cli",
+    "oauth",
+    "claude-code",
+    "setup"
+  ],
+  "homepage": "https://nirholas.github.io/three-ws-cli/"
+}

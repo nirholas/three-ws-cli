@@ -1,0 +1,22 @@
+{
+  "name": "three-ws-cli",
+  "owner": {
+    "name": "nirholas"
+  },
+  "description": "Connect any MCP client to the hosted three.ws MCP servers with @three-ws/cli: sign in, write configs, verify, diagnose.",
+  "plugins": [
+    {
+      "name": "three-ws-cli",
+      "source": "./",
+      "description": "Connect any MCP client to the hosted three.ws MCP servers with @three-ws/cli: sign in, write configs, verify, diagnose.",
+      "tags": [
+        "mcp",
+        "three-ws",
+        "cli",
+        "oauth",
+        "claude-code",
+        "setup"
+      ]
+    }
+  ]
+}
